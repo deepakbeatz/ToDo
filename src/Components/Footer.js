@@ -11,7 +11,7 @@ class footer extends Component{
             width:'100%',
             backgroundColor:this.props.color,
             textAlign:'center',
-            height:'35px',
+            height:'40px',
             paddingTop:'1%',
             bottom:'0%'
         }
