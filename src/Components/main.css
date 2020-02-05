@@ -16,8 +16,13 @@
     text-decoration: line-through;
 }
 
+#light{
+    color:rgb(90, 90, 90)
+}
 
-
+#light:hover{
+    color:#000000;
+}
 @media only screen and (max-width: 600px) {
     .taskboard{
         position: absolute;
@@ -29,4 +34,8 @@
         padding-top:15px;
         padding-bottom: 10px;
     }
+}
+
+#form{
+    visibility: hidden;
 }

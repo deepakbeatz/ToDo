@@ -3,7 +3,7 @@ import Radium from 'radium'
 import './main.css'
 class main extends Component{
     state={
-        "Itasks":['complete assignments','play PUBG','meet John'],
+        "Itasks":[],
         "Ctasks":[],
         
     }
@@ -50,12 +50,31 @@ class main extends Component{
             return tasks
         }
         
-    
+        const formHandler=(e)=>{
+            e.preventDefault();
+            document.getElementById('form').style.visibility="hidden";
+            var item=this.refs.item.value
+            if(item!=null){
+                var Itasks=this.state.Itasks; 
+                Itasks.push(item);
+                this.setState({"Itasks":Itasks});
+            }
+        }
+        
+        const addHandler=()=>{
+            document.getElementById('form').style.visibility="visible";
+        }
+        
+        
         return(
             <div class="main">
                 <div class="taskboard">
                     <h4>TODO</h4>
-                    {getItasks()}
+                    {getItasks()}<br/>
+                    <div id="light" onClick={addHandler}><i class="fas fa-plus"></i> Add Task</div>
+                    <div id="form">
+                        <form onSubmit={formHandler.bind(this)}><input name="item" ref="item" type="text"/> <input type="submit"value="Add Item"/></form>
+                    </div>
                     <hr/>
                     <h4>COMPLETED</h4>
                     <div class="completed">
