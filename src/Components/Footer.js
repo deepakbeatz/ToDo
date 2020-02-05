@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import Radium from 'radium'
-
+import './footer.css'
 class footer extends Component{
     
 
@@ -16,7 +16,7 @@ class footer extends Component{
             bottom:'0%'
         }
         return(
-            <div style={style}>
+            <div style={style} class="footer">
                <span dangerouslySetInnerHTML={{ "__html": "&copy;" }} />{this.props.text}
             </div>
         )
