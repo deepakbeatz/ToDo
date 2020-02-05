@@ -7,7 +7,10 @@ class main extends Component{
         
         return(
             <div class="taskboard">
-               
+               <span>complete assignments <input type="checkbox"></input><br/></span>
+               <span>play PUBG <input type="checkbox"></input><br/></span>
+               <hr/>
+               <span>watch FRIENDS <input type="checkbox"></input><br/></span>
             </div>
         )
     }

@@ -1,12 +1,13 @@
 .taskboard{
     position: absolute;
-    width:30%;
-    min-width: 200px;
     text-align: center;
-    height:250px;
-    left:34%;
-    top:150px;
+    top:200px;
+    width:70%;
+    left:15%;
+    right:15%;
     background-color: rgba(151, 248, 255, 0.295);
+    padding-top:15px;
+    padding-bottom: 10px;
 }
 
 @media only screen and (max-device-width: 480px) {
