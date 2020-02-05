@@ -4,7 +4,8 @@ import './main.css'
 class main extends Component{
     state={
         "Itasks":['complete assignments','play PUBG','meet John'],
-        "Ctasks":[]
+        "Ctasks":[],
+        
     }
     render(){
         const completeHandler=(event)=>{
@@ -12,23 +13,39 @@ class main extends Component{
             if(event.target.checked){
                 var name=event.target.value
                 temp=this.state.Ctasks;
-                temp.push(<div>{name}<br /></div>);
+                temp.push(name);
                 this.setState({"Ctasks":temp})
                 var Itasks=this.state.Itasks; 
-                console.log(Itasks)
-                console.log(Itasks.indexOf())
                 Itasks.splice(Itasks.indexOf(name), 1);
-                console.log(Itasks)
                 this.setState({"Itasks":Itasks});
             }
             
         }
 
-        const getTasks=()=>{
+        const redoHandler=(name)=>{
+            var Ctasks=this.state.Ctasks;
+            Ctasks.splice(Ctasks.indexOf(name), 1);
+            this.setState({"Ctasks":Ctasks});
+            var Itasks=this.state.Itasks; 
+            Itasks.push(name);
+            this.setState({"Itasks":Itasks});
+        }
+
+        const getItasks=()=>{
             let tasks=[]
             let temp=this.state.Itasks;
             for(var i=0;i<temp.length;i++){
                 tasks.push(<div>{temp[i]}<input type="checkbox" value={temp[i]} onChange={completeHandler} checked={false}></input><br/></div>)
+                
+            }
+            return tasks
+        }
+
+        const getCtasks=()=>{
+            let tasks=[]
+            let temp=this.state.Ctasks;
+            for(var i=0;i<temp.length;i++){
+                tasks.push(<div>{temp[i]} <i value={temp[i]} onClick={redoHandler.bind(this,temp[i])} class="fas fa-redo"></i><br /></div>)
             }
             return tasks
         }
@@ -38,11 +55,11 @@ class main extends Component{
             <div class="main">
                 <div class="taskboard">
                     <h4>TODO</h4>
-                    {getTasks()}
+                    {getItasks()}
                     <hr/>
                     <h4>COMPLETED</h4>
                     <div class="completed">
-                        {this.state.Ctasks}
+                        {getCtasks()}
                     </div>
                 </div>
             </div>
