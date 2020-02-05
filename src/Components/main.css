@@ -1,10 +1,10 @@
 .taskboard{
     position: absolute;
     width:30%;
-    min-width: 320px;
+    min-width: 250px;
     text-align: center;
     height:250px;
-    left:35%;
+    left:30%;
     top:120px;
     background-color: rgba(151, 248, 255, 0.295);
 }
@@ -16,7 +16,7 @@
         min-width: 320px;
         text-align: center;
         height:250px;
-        left:35%;
+        left:10%;
         top:120px;
         background-color: rgba(151, 248, 255, 0.295);
         }
