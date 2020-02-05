@@ -3,28 +3,42 @@ import Radium from 'radium'
 import './main.css'
 class main extends Component{
     state={
-        "Itasks":[],
+        "Itasks":['complete assignments','play PUBG','meet John'],
         "Ctasks":[]
     }
     render(){
-        const taskHandler=(event)=>{
+        const completeHandler=(event)=>{
+            let temp=[]
             if(event.target.checked){
                 var name=event.target.value
-                var temp=this.state.Ctasks;
-                temp.push(name);
+                temp=this.state.Ctasks;
+                temp.push(<div>{name}<br /></div>);
                 this.setState({"Ctasks":temp})
-            }  
+                var Itasks=this.state.Itasks; 
+                console.log(Itasks)
+                console.log(Itasks.indexOf())
+                Itasks.splice(Itasks.indexOf(name), 1);
+                console.log(Itasks)
+                this.setState({"Itasks":Itasks});
+            }
+            
         }
 
+        const getTasks=()=>{
+            let tasks=[]
+            let temp=this.state.Itasks;
+            for(var i=0;i<temp.length;i++){
+                tasks.push(<div>{temp[i]}<input type="checkbox" value={temp[i]} onChange={completeHandler} checked={false}></input><br/></div>)
+            }
+            return tasks
+        }
         
     
         return(
             <div class="main">
                 <div class="taskboard">
                     <h4>TODO</h4>
-                    <span>complete assignments <input type="checkbox" value="complete assignments" onChange={taskHandler}></input><br/></span>
-                    <span>play PUBG <input type="checkbox" value="play PUBG" onChange={taskHandler}></input><br/></span>
-                    <span>Meeting on AI <input type="checkbox" value="Meeting on AI" onChange={taskHandler}></input><br/></span>
+                    {getTasks()}
                     <hr/>
                     <h4>COMPLETED</h4>
                     <div class="completed">
