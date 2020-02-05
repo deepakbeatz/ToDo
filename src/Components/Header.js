@@ -3,7 +3,9 @@ import Radium from 'radium'
 import Navbar from './Navbar'
 
 class header extends Component{
+
     render(){
+
         return(
             <div>
                 <Navbar />
