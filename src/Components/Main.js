@@ -6,7 +6,7 @@ class main extends Component{
     render(){
         
         return(
-            <div class="main">
+            <div class="taskboard">
                
             </div>
         )
