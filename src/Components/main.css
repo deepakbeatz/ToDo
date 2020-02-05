@@ -1,20 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script:600&display=swap');
 .taskboard{
     position: absolute;
     text-align: center;
-    top:200px;
-    width:70%;
-    left:15%;
-    right:15%;
+    font-family: 'Dancing Script', cursive;
+    top:25%;
+    width:60%;
+    left:20%;
+    right:20%;
     background-color: rgba(151, 248, 255, 0.295);
     padding-top:15px;
     padding-bottom: 10px;
 }
 
+.completed{
+    text-decoration: line-through;
+}
+
+
+
 @media only screen and (max-width: 600px) {
     .taskboard{
         position: absolute;
         text-align: center;
-        top:200px;
+        top:30%;
         width:100%;
         left:0%;
         background-color: rgba(151, 248, 255, 0.295);

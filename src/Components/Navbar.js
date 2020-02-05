@@ -6,7 +6,7 @@ class navbar extends Component{
     render(){
 
         return(
-            <div>
+            <div class="main">
                 <Navbar className="navColor" expand="lg">
                     <Navbar.Brand href="#"><i className="fa fa-hand-o-right" aria-hidden="true"></i>ToDo</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
