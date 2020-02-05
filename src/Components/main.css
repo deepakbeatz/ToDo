@@ -10,15 +10,15 @@
     padding-bottom: 10px;
 }
 
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-width: 600px) {
     .taskboard{
         position: absolute;
-        width:30%;
-        min-width: 320px;
         text-align: center;
-        height:250px;
-        left:10%;
-        top:120px;
+        top:200px;
+        width:100%;
+        left:0%;
         background-color: rgba(151, 248, 255, 0.295);
-        }
+        padding-top:15px;
+        padding-bottom: 10px;
+    }
 }
