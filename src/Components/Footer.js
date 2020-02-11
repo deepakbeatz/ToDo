@@ -7,7 +7,7 @@ class footer extends Component{
 
     render(){
         var style={
-            position:'fixed',
+            position:'absolute',
             width:'100%',
             backgroundColor:this.props.color,
             textAlign:'center',

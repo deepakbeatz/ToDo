@@ -8,10 +8,10 @@ import './App.css';
 class app extends Component{
   render(){
     return(
-      <div>
+      <div class="App">
         <Header color="#7fd7e3" text="ToDo" />
 
-        <Main />
+        <Main /><br/><br/>
 
         <Footer color="#7fd7e3" text= "ToDo Ltd." />
       </div>

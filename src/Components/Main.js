@@ -1,11 +1,40 @@
 import React,{Component} from 'react';
 import Radium from 'radium'
+import axios from 'axios'
 import './main.css'
+
 class main extends Component{
     state={
         "Itasks":[],
         "Ctasks":[],
         
+    }
+
+    
+    componentDidMount(){
+        axios.get("https://todo08.herokuapp.com/api/tasks").then(res=>{
+            var ctasks=[]
+            var itasks=[]
+            var temp=res.data["tasks"];
+            console.log(temp)
+            for(var i=0;i<temp.length;i++){
+                if(temp[i]["taskStatus"]==="incomplete"){
+                    itasks.push(temp[i]["taskName"])
+                    console.log(itasks)
+                }
+                if(temp[i]["taskStatus"]==="complete"){
+                    ctasks.push(temp[i]["taskName"])
+                    console.log(ctasks)
+                }
+                this.setState({"Itasks":itasks}) 
+                this.setState({"Ctasks":ctasks}) 
+            }
+            })
+            .catch(err=>{console.log(err)});
+    }
+
+    componentWillUnmount(){
+        return(null);
     }
     render(){
         const completeHandler=(event)=>{
@@ -33,14 +62,17 @@ class main extends Component{
 
         const getItasks=()=>{
             let tasks=[]
+            
             let temp=this.state.Itasks;
             for(var i=0;i<temp.length;i++){
                 tasks.push(<div>{temp[i]}<input type="checkbox" value={temp[i]} onChange={completeHandler} checked={false}></input><br/></div>)
                 
             }
             return tasks
+            
         }
 
+        
         const getCtasks=()=>{
             let tasks=[]
             let temp=this.state.Ctasks;
@@ -54,10 +86,13 @@ class main extends Component{
             e.preventDefault();
             document.getElementById('form').style.visibility="hidden";
             var item=this.refs.item.value
-            if(item!=null){
-                var Itasks=this.state.Itasks; 
-                Itasks.push(item);
-                this.setState({"Itasks":Itasks});
+            if(item!==null){
+                axios.post("https://todo08.herokuapp.com/api/tasks",{"userName":"test","taskName":item,"taskStatus":"incomplete"}).then(res=>{ 
+                    var Itasks=this.state.Itasks; 
+                    Itasks.push(item);
+                    console.log(res)
+                    this.setState({"Itasks":Itasks});
+                }).catch(err=>{console.log(err)})
             }
         }
         
