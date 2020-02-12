@@ -1,20 +1,20 @@
 import React,{Component} from 'react';
-import Header from './Components/Header';
-import Footer from './Components/Footer';
-import Main from './Components/Main';
 import './App.css';
-
+import {BrowserRouter as Router,Route,Link} from 'react-router-dom';
+import Home from './Containers/Home';
+import Login from './Containers/Login';
+import Register from './Containers/Register';
 
 class app extends Component{
   render(){
     return(
-      <div class="App">
-        <Header color="#7fd7e3" text="ToDo" />
-
-        <Main /><br/><br/>
-
-        <Footer color="#7fd7e3" text= "ToDo Ltd." />
-      </div>
+      <Router>
+        <div class="App">
+          <Route path="/" exact component={Login} />
+          <Route path="/home" exact component={Home} />
+          <Route path="/signup" exact component={Register} />
+        </div>
+      </Router>
     )
   }
 }
